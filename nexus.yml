@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nexus
+  namespace: devops-tools
+  labels:
+    app: nexus
+    group: service
+spec:
+  replicas: 1
+  serviceName: nexus
+  selector:
+    matchLabels:
+      app: nexus
+  template:
+    metadata:
+      labels:
+        app: nexus
+        group: service
+    spec:
+      securityContext:
+        runAsUser: 200
+        runAsGroup: 2000
+        fsGroup: 2000
+      containers:
+        - name: nexus
+          image: 'sonatype/nexus3:3.15.2'
+          ports:
+            - containerPort: 8081
+              protocol: TCP
+            - containerPort: 8123
+              protocol: TCP
+          volumeMounts:
+            - name: nexus-storage
+              mountPath: /nexus-data
+      volumes:
+        - name: nexus-storage
+          emptyDir: {}
+            
+            
+            
+            
+    
