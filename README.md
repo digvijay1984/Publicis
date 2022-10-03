@@ -1,19 +1,11 @@
-# Public
-Continous Integration tools - Jenkins 
------------------------------------------
-write ustom docker file for jenkins server - jenkins-dockerfile.
+# CICD_Java_gradle_application
 
-1. write custom docker file for jenkins server - jenkins-dockerfile.
-2. Create custom jenkins docker image - ggupta008/myjenkins:latest
-3. Create persistance volume and persistence claim resource for store jenkins data - jenkins-pv-volume
-4. Deploy jenkins server - jenkins-deployment.yaml
-5. Create jenkins service - servive-Account.yaml
-6. Configure jenkins server - Admin profile, plugins
+This application is java spring boot web application  
 
-Binary Repository - Nexus
--------------------------------------
-Create persistance volume and persistence claim resource for store jenkins data - jenkins-pv-volume ?
-Deploy nexus - nexus.yaml
-Create nexus servive - nexus-service.yaml
+build tool is ** gradle **
 
+when we build the code using command ```./gradlew build ``` it will generate war file. that war can be placed in tomcat server to see application web page
 
+code is integrated with sonarqube plugin which help us in static code analysis 
+
+``` ./gradlew sonarqube ```
