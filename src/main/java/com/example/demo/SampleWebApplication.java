@@ -11,5 +11,4 @@ public class SampleWebApplication {
 	}
 
 }
-Footer
-© 2022 GitHub, Inc.
+
